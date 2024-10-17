@@ -3,81 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food website</title>
-    <link rel="stylesheet" href="landing.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <header>
-        <div id="stars"></div>
-        <div class="navbar">
-            <img src="logo.jpg" alt="">
-            <div class="center-nav">
-                <a href="">Home</a>
-                <a href="">Ratings</a>
-                <a href="slider.html">Photos</a>
-                <a href="index.html">Login</a>
-            </div>
-            <div class="social">
-                <a href=""><i class="fa-solid fa-house"></i></a>
-                <a href=""><i class="fa-solid fa-bars"></i></a>
-                <a href=""><i class="fa-regular fa-address-card"></i></a>
-                <a href=""><i class="fa-brands fa-shopify"></i></a>
-            </div>
+    <div class="box">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form action="index.html">
+                <div class="group">
+                    <div class="field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name">
+                    </div>
+                    <div class="field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email">
+                    </div>
+                    <div class="field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" id="password">
+                    </div>
+                    <div class="field">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Confirm Password">
+                    </div>
+                    <p>Forgot password <a href="#" class="link login-link">Click Here!</a></p>
+                </div>
+                <div class="btn-field">
+                    <button type="button" id="signupBtn">Sign up</button>
+                    <button type="button" id="signinBtn" class="disable">Sign in</button>
+                </div>
+            </form>
         </div>
-
-        <div class="text">
-            <h1>THE ULTIMATE <br> FOOD CRAVINGS</h1>
-            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Est soluta qui accusantium excepturi quasi, esse ex aut obcaecati adipisci libero,<br> consequatur assumenda repellat dignissimos cumque culpa et quibusdam deleniti repellendus!</P>
-            <a href="" class="btn">Order Now</a>
-            <a href="" class="btn">View more</a>
-        </div>
-
-        <div class="food">
-            <img src="pizza.jpg" alt="">
-            <img src="cake.jpg" alt="">
-            <img src="burger.jpg" alt="">
-            <img src="platter.jpg" alt="">
-            <img src="coffee.jpg" alt="">
-        </div>
-        <div class="food-toggle">
-            <img src="burger.jpg" alt="" class="active">
-        </div>
-    </header>
+    </div>
     <script>
-        const foodImages = document.querySelectorAll('.food img');
-        const toggleImages = document.querySelectorAll('.food-toggle img');
-        let currentIndex = 0;
+        let signupBtn = document.getElementById("signupBtn");
+        let signinBtn = document.getElementById("signinBtn");
+        let nameField = document.getElementById("nameField");
+        let title = document.getElementById("title");
 
-        toggleImages[currentIndex].classList.add('active');
-
-        foodImages.forEach((img,index) => {
-            img.addEventListener('click',() => {
-                toggleImages.forEach(toggleImg => toggleImg.classList.remove('active'));
-                toggleImages[currentIndex].classList.add('active');
-                toggleImages[currentIndex].src = foodImages[index].src;
-                currentIndex = (currentIndex + 1) % toggleImages.length;
-            });
-        });
-        
-
-        function createStars(){
-            const starsContainer = document.getElementById('stars');
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-
-            for(let i = 0; i<100; i++){
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = `${Math.random() * windowWidth}px`;
-                star.style.top = `${Math.random() * windowHeight}px`;
-                starsContainer.appendChild(star);
-            }
+        signinBtn.onclick = function() {
+            nameField.style.display = "none";
+            title.innerHTML = "Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
         }
 
-        window.addEventListener('load',createStars);
+        signupBtn.onclick = function() {
+            <!-- nameField.style.maxHeight = "60px"; -->
+            title.innerHTML = "Sign Up";
+            signinBtn.classList.add("disable");
+            signupBtn.classList.remove("disable");
+        }
 
+        const links = document.querySelectorAll(".link");
+
+        links.forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+            });
+        });
     </script>
-    
 </body>
 </html>
