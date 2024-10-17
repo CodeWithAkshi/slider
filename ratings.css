@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background: #f0f0f0; /* Optional background color */
+}
+
+.container {
+    text-align: center;
+    background: white;
+    /* width: 100%; */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.submitBtn:hover {
+    border-color: #000000;
+    background-color: #094cb0;
+    transform: scale(1.1);
+}
+
+.feedbackSection label {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    cursor: pointer;
+}
+
+.rating i {
+    font-size: 4vh;
+    margin: 0.5vh;
+}
+
+.rating input:checked + label i {
+    color: gold;
+}
+
+.rating label:hover i {
+    color: yellow;
+}
+
+.feedbackSection {
+    margin-top: 20px;
+}
+
+.submitBtn {
+    margin-top: 10px;
+}
+p{
+    font-size: 3vw;
+}
+.feedbackSection label{
+    font-size: 2vw;
+}

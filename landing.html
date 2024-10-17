@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food website</title>
+    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div id="stars"></div>
+        <div class="navbar">
+            <img src="logo.jpg" alt="">
+            <div class="center-nav">
+                <a href="">Home</a>
+                <a href="">Ratings</a>
+                <a href="slider.html">Photos</a>
+                <a href="index.html">Login</a>
+            </div>
+            <div class="social">
+                <a href=""><i class="fa-solid fa-house"></i></a>
+                <a href=""><i class="fa-solid fa-bars"></i></a>
+                <a href=""><i class="fa-regular fa-address-card"></i></a>
+                <a href=""><i class="fa-brands fa-shopify"></i></a>
+            </div>
+        </div>
+
+        <div class="text">
+            <h1>THE ULTIMATE <br> FOOD CRAVINGS</h1>
+            <P>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Est soluta qui accusantium excepturi quasi, esse ex aut obcaecati adipisci libero,<br> consequatur assumenda repellat dignissimos cumque culpa et quibusdam deleniti repellendus!</P>
+            <a href="" class="btn">Order Now</a>
+            <a href="" class="btn">View more</a>
+        </div>
+
+        <div class="food">
+            <img src="pizza.jpg" alt="">
+            <img src="cake.jpg" alt="">
+            <img src="burger.jpg" alt="">
+            <img src="platter.jpg" alt="">
+            <img src="coffee.jpg" alt="">
+        </div>
+        <div class="food-toggle">
+            <img src="burger.jpg" alt="" class="active">
+        </div>
+    </header>
+    <script>
+        const foodImages = document.querySelectorAll('.food img');
+        const toggleImages = document.querySelectorAll('.food-toggle img');
+        let currentIndex = 0;
+
+        toggleImages[currentIndex].classList.add('active');
+
+        foodImages.forEach((img,index) => {
+            img.addEventListener('click',() => {
+                toggleImages.forEach(toggleImg => toggleImg.classList.remove('active'));
+                toggleImages[currentIndex].classList.add('active');
+                toggleImages[currentIndex].src = foodImages[index].src;
+                currentIndex = (currentIndex + 1) % toggleImages.length;
+            });
+        });
+        
+
+        function createStars(){
+            const starsContainer = document.getElementById('stars');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            for(let i = 0; i<100; i++){
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * windowWidth}px`;
+                star.style.top = `${Math.random() * windowHeight}px`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        window.addEventListener('load',createStars);
+
+    </script>
+    
+</body>
+</html>

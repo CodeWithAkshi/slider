@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="ratings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="ratings">
+            <p>Rate Us!</p>
+        </div>
+        <div class="rating">
+            <input type="radio" name="star" id="star1"><label for="star1"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" name="star" id="star2"><label for="star2"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" name="star" id="star3"><label for="star3"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" name="star" id="star4"><label for="star4"><i class="fa-solid fa-star"></i></label>
+            <input type="radio" name="star" id="star5"><label for="star5"><i class="fa-solid fa-star"></i></label>
+        </div>
+        <div class="hideThank">
+           <p> Thanks for your Review!</p>
+        </div>
+        <div class="feedbackSection">
+            <label for="feedback">Review Us:</label>
+            <textarea id="feedback" rows="6" placeholder="Single feedback matters...."></textarea>
+            <button type="submit" class="submitBtn">Submit</button>
+        </div>
+    </div>
+
+    <script>
+      var Allstars=document.querySelectorAll('.rating i')
+      Allstars.forEach((faStar, i) =>{
+        faStar.addEventListener("click", ()=>{
+            console.log(i)  
+            for(var j=0;j<Allstars.length;j++){
+            if(j<=i){
+               Allstars[j].style.color ="yellow"
+            }
+            else{
+             Allstars[j].style.color="black"
+            }
+            }
+        })
+      })
+    </script>
+</body>
+</html>
